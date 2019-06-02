@@ -11,14 +11,20 @@ public class ClienteServiceImpl implements ClienteService {
 	List<Cliente> clientes = new ArrayList<>();
 
 	@Override
-	public void listar() {
+	public List<Cliente> listar() {
 		System.out.println("-----Clientes cadastrados-----");
 
 		System.out.println();
-
-		for (int i = 0; i < clientes.size(); i++) {
-			System.out.println(clientes.get(i).getNome());
+		
+		if (!this.clientes.isEmpty()) {			
+			for (int i = 0; i < clientes.size(); i++) {
+				System.out.println(clientes.get(i).getNome());
+			}
+		}else {
+			System.out.println("não existem clientes cadastrados");
 		}
+		
+		return this.clientes;
 	}
 
 	@Override

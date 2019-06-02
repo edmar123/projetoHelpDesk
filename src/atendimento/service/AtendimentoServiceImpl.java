@@ -1,31 +1,33 @@
-package atendente.service;
+package atendimento.service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 import atendente.model.Atendente;
-import cliente.model.Cliente;
+import atendimento.model.Atendimento;
 
-public class AtendimentoServiceImpl implements AtendenteService {
+public class AtendimentoServiceImpl implements AtendimentoService {
 
-	List<Atendente> atendentes = new ArrayList<>();
+	List<Atendimento> atendimentos = new ArrayList<>();
 
 	@Override
-	public void listar() {
-		System.out.println("-----Atendentes cadastrados-----");
+	public List<Atendimento> listar() {
+		System.out.println("-----Atendimentos cadastrados-----");
 
 		System.out.println();
 
-		for (int i = 0; i < atendentes.size(); i++) {
-			System.out.println(atendentes.get(i).getNome());
+		for (int i = 0; i < atendimentos.size(); i++) {
+			System.out.println(atendimentos.get(i).getSolicitacao());
 		}
+		
+		return this.atendimentos;
 	}
 
 	@Override
-	public void salvar(Atendente atendente) {
+	public void salvar(Atendimento atendimento) {
 
-		System.out.println("------ Cadastro de  Cliente  ------");
+		System.out.println("------ Registrando um atendimento  ------");
 		Scanner scanner = new Scanner(System.in);
 
 		System.out.println("Deseja Cadastrar este atendente ?");
@@ -36,20 +38,20 @@ public class AtendimentoServiceImpl implements AtendenteService {
 		System.out.println();
 
 		if (acao.equals("sim")) {
-			Atendente atendenteSalvo = atendente;
+			Atendimento atendimentosalvo = atendimento;
 
-			atendentes.add(atendenteSalvo);
-			System.out.println("----- Atendente cadastrado com Sucesso -----");
+			atendimentos.add(atendimentosalvo);
+			System.out.println("----- Atendimento registrado com Sucesso -----");
 			System.out.println();
 
 		} else if (acao.equals("cancelar")) {
-			System.out.println("----- Cancelando o Cadastro de Atendente -----");
+			System.out.println("----- Cancelando o registro de atendimento -----");
 			System.out.println();
 		}
 	}
 
 	@Override
-	public void remover(Atendente atendente) {
+	public void remover(Atendimento atendente) {
 
 		System.out.println("------ Remover Atendente  ------");
 		Scanner scanner = new Scanner(System.in);
@@ -63,7 +65,7 @@ public class AtendimentoServiceImpl implements AtendenteService {
 
 		if (acao.equals("sim")) {
 
-			atendentes.remove(atendente);
+			atendimentos.remove(atendente);
 
 			System.out.println("----- Atendente removido com Sucesso -----");
 			System.out.println();
