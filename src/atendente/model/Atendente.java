@@ -26,6 +26,11 @@ public class Atendente extends Pessoa{
 		this.prazoAtendimento = prazoAtendimento;
 	}
 
+	@Override
+	public String toString() {
+		return "Atendente [ nome= "+ super.getNome() + "]";
+	}
+
 
 
 }

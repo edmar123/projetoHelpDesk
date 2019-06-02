@@ -19,6 +19,7 @@ public class AtendenteServiceImpl implements AtendenteService {
 		for (int i = 0; i < atendentes.size(); i++) {
 			System.out.println(atendentes.get(i).getNome());
 		}
+		System.out.println();
 		return this.atendentes;
 	}
 
@@ -29,6 +30,9 @@ public class AtendenteServiceImpl implements AtendenteService {
 		Scanner scanner = new Scanner(System.in);
 
 		System.out.println("Deseja Cadastrar este atendente ?");
+		System.out.println("Dados do atendente : " + atendente.toString());
+
+		System.out.println("(sim)-(cancelar)");
 		System.out.println();
 
 		String acao = scanner.nextLine();

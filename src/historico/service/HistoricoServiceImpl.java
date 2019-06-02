@@ -71,5 +71,5 @@ public class HistoricoServiceImpl implements ServicoGenerico<Historico, Integer>
 	public void fazerAniversario() {
 		// TODO Auto-generated method stub
 		
-	}
+	}	
 }

@@ -24,6 +24,7 @@ public class ClienteServiceImpl implements ClienteService {
 			System.out.println("não existem clientes cadastrados");
 		}
 		
+		System.out.println();
 		return this.clientes;
 	}
 
@@ -34,6 +35,9 @@ public class ClienteServiceImpl implements ClienteService {
 		Scanner scanner = new Scanner(System.in);
 
 		System.out.println("Deseja Cadastrar este cliente ?");
+		System.out.println();
+		System.out.println("Dados do cliente : " + cliente.toString());
+		System.out.println("(sim)-(cancelar)");
 		System.out.println();
 
 		String acao = scanner.nextLine();

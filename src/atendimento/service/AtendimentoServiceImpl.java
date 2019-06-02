@@ -5,8 +5,9 @@ import java.util.List;
 import java.util.Scanner;
 
 import atendimento.model.Atendimento;
+import servicoGenerico.ServicoGenerico;
 
-public class AtendimentoServiceImpl implements AtendimentoService {
+public class AtendimentoServiceImpl implements ServicoGenerico<Atendimento, Integer> {
 
 	List<Atendimento> atendimentos = new ArrayList<>();
 
@@ -82,10 +83,4 @@ public class AtendimentoServiceImpl implements AtendimentoService {
 		// TODO Auto-generated method stub
 
 	}
-
-	@Override
-	public void relizaChamada() {
-		System.out.println("Realizando chamado...");
-	}
-
 }

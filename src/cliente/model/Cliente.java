@@ -13,5 +13,12 @@ public class Cliente extends Pessoa {
 	public void setContrato(String contrato) {
 		this.contrato = contrato;
 	}
+
+	@Override
+	public String toString() {
+		
+		return "Cliente [contrato = " + contrato + " | nome = " + super.getNome() +"]";
+	}
+	
 	
 }
