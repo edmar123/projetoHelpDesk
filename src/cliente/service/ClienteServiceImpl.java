@@ -48,7 +48,7 @@ public class ClienteServiceImpl implements ClienteService {
 	}
 
 	@Override
-	public void remover(Integer id) {
+	public void remover(Cliente cliente) {
 
 		System.out.println("------ Remover Cliente  ------");
 		Scanner scanner = new Scanner(System.in);
@@ -62,7 +62,7 @@ public class ClienteServiceImpl implements ClienteService {
 
 		if (acao.equals("sim")) {
 
-			clientes.remove(id);
+			clientes.remove(cliente);
 
 			System.out.println("----- Cliente removido com Sucesso -----");
 			System.out.println();
@@ -73,8 +73,6 @@ public class ClienteServiceImpl implements ClienteService {
 		}
 
 		System.out.println("Removendo cliente da base de dados");
-		this.clientes.remove(id);
-
 	}
 
 	@Override

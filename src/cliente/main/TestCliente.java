@@ -1,5 +1,7 @@
 package cliente.main;
 
+import java.util.Scanner;
+
 import cliente.Cliente;
 import cliente.service.ClienteService;
 import cliente.service.ClienteServiceImpl;
@@ -7,7 +9,15 @@ import cliente.service.ClienteServiceImpl;
 public class TestCliente {
 
 	public static void main(String[] args) {
-
+		
+		System.out.println("----- Iniciando sistema -----");
+		System.out.println();
+		System.out.println();
+		
+		Scanner scanner = new Scanner(System.in);
+		
+		String operacao = scanner.nextLine();
+		
 		ClienteService servicoCliente = new ClienteServiceImpl();
 
 		/**
@@ -32,7 +42,7 @@ public class TestCliente {
 
 		System.out.println();
 
-		servicoCliente.remover(dadosCliente1.getId() - 1);
+		servicoCliente.remover(dadosCliente1);
 
 		System.out.println();
 		servicoCliente.listar();
