@@ -2,7 +2,7 @@ package cliente.main;
 
 import java.util.Scanner;
 
-import cliente.Cliente;
+import cliente.model.Cliente;
 import cliente.service.ClienteService;
 import cliente.service.ClienteServiceImpl;
 

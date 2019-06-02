@@ -1,33 +1,34 @@
-package cliente.service;
+package atendente.service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import atendente.model.Atendente;
 import cliente.model.Cliente;
 
-public class ClienteServiceImpl implements ClienteService {
+public class AtendimentoServiceImpl implements AtendenteService {
 
-	List<Cliente> clientes = new ArrayList<>();
+	List<Atendente> atendentes = new ArrayList<>();
 
 	@Override
 	public void listar() {
-		System.out.println("-----Clientes cadastrados-----");
+		System.out.println("-----Atendentes cadastrados-----");
 
 		System.out.println();
 
-		for (int i = 0; i < clientes.size(); i++) {
-			System.out.println(clientes.get(i).getNome());
+		for (int i = 0; i < atendentes.size(); i++) {
+			System.out.println(atendentes.get(i).getNome());
 		}
 	}
 
 	@Override
-	public void salvar(Cliente cliente) {
+	public void salvar(Atendente atendente) {
 
 		System.out.println("------ Cadastro de  Cliente  ------");
 		Scanner scanner = new Scanner(System.in);
 
-		System.out.println("Deseja Cadastrar este cliente ?");
+		System.out.println("Deseja Cadastrar este atendente ?");
 		System.out.println();
 
 		String acao = scanner.nextLine();
@@ -35,22 +36,22 @@ public class ClienteServiceImpl implements ClienteService {
 		System.out.println();
 
 		if (acao.equals("sim")) {
-			Cliente clienteSalvo = cliente;
+			Atendente atendenteSalvo = atendente;
 
-			clientes.add(cliente);
-			System.out.println("----- Cliente cadastrado com Sucesso -----");
+			atendentes.add(atendenteSalvo);
+			System.out.println("----- Atendente cadastrado com Sucesso -----");
 			System.out.println();
 
 		} else if (acao.equals("cancelar")) {
-			System.out.println("----- Cancelando o Cadastro de Cliente -----");
+			System.out.println("----- Cancelando o Cadastro de Atendente -----");
 			System.out.println();
 		}
 	}
 
 	@Override
-	public void remover(Cliente cliente) {
+	public void remover(Atendente atendente) {
 
-		System.out.println("------ Remover Cliente  ------");
+		System.out.println("------ Remover Atendente  ------");
 		Scanner scanner = new Scanner(System.in);
 
 		System.out.println("Deseja Remover este cliente ?");
@@ -62,17 +63,17 @@ public class ClienteServiceImpl implements ClienteService {
 
 		if (acao.equals("sim")) {
 
-			clientes.remove(cliente);
+			atendentes.remove(atendente);
 
-			System.out.println("----- Cliente removido com Sucesso -----");
+			System.out.println("----- Atendente removido com Sucesso -----");
 			System.out.println();
 
 		} else if (acao.equals("cancelar")) {
-			System.out.println("----- Cancelando a remocão de Cliente -----");
+			System.out.println("----- Cancelando a remocão de Atendente -----");
 			System.out.println();
 		}
 
-		System.out.println("Removendo cliente da base de dados");
+		System.out.println("Removendo Atendente da base de dados");
 	}
 
 	@Override
@@ -84,7 +85,6 @@ public class ClienteServiceImpl implements ClienteService {
 	@Override
 	public void relizaChamada() {
 		System.out.println("Realizando chamado...");
-
 	}
 
 }

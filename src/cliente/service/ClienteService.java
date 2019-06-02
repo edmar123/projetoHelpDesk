@@ -1,6 +1,6 @@
 package cliente.service;
 
-import cliente.Cliente;
+import cliente.model.Cliente;
 import servicoGenerico.ServicoGenerico;
 
 public interface ClienteService extends ServicoGenerico<Cliente, Integer> {

@@ -2,8 +2,14 @@ package utils;
 
 public enum TipoOperacao {
 	
-	CADASTRAR,
-	REMOVER,
-	LISTAR,
+	CADASTRAR("cadastrar"),
+	REMOVER("remover"),
+	LISTAR("listar");
+	
+	private String descricao;
+	
+	TipoOperacao(String descricao){
+		this.descricao = descricao;
+	}
 
 }
