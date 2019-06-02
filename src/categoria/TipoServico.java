@@ -1,7 +1,7 @@
 package categoria;
 
 public enum TipoServico {
-	HARDWARE("hardaware"),
+	HARDWARE("hardware"),
 	SOFTWARE("software");
 	
 	private String descricao;

@@ -44,6 +44,7 @@ public class HistoricoServiceImpl implements ServicoGenerico<Historico, Integer>
 			System.out.println("---------- Anexo de hist�rico cancelado! ----------");
 		}
 		
+		scan.close();
 	}
 
 	@Override
@@ -65,6 +66,7 @@ public class HistoricoServiceImpl implements ServicoGenerico<Historico, Integer>
 			System.out.println("--------- Cancelado! ----------");
 		}
 		
+		scan.close();
 	}
 
 	@Override
