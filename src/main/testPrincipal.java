@@ -8,10 +8,13 @@ import atendente.main.AtendenteTest;
 import atendente.model.Atendente;
 import atendente.service.AtendenteService;
 import atendente.service.AtendenteServiceImpl;
+import atendimento.model.Atendimento;
+import atendimento.service.AtendimentoServiceImpl;
 import cliente.main.ClienteTest;
 import cliente.model.Cliente;
 import cliente.service.ClienteService;
 import cliente.service.ClienteServiceImpl;
+import servicoGenerico.ServicoGenerico;
 
 public class testPrincipal {
 
@@ -22,29 +25,44 @@ public class testPrincipal {
 	static List<Atendente>  atendentesCadastrados = new ArrayList<>();
 
 	static AtendenteService servicoAtendente = new AtendenteServiceImpl();
+	
+	static List<Atendimento>  atendimentosCadastrados = new ArrayList<>();
+
+	static ServicoGenerico<Atendimento, Integer> servicoAtendimento = new AtendimentoServiceImpl();
+	
+	static Atendente atendente1;
+	static Atendente atendente2;
+	
+	static Atendimento atendimento;
+
+	
+	static Cliente cliente1;
+	static Cliente cliente2;
 
 	public static void main(String[] args) {
 
-		String permissao;
+		String permissao = "";
 		Scanner scanner = new Scanner(System.in);
 
-		System.out.println("Qual a sua permissao ??");
-		System.out.println("Atendente(1) | cliente(2)");
+		do {
+			
+			System.out.println("Qual a sua permissao ??");
+			System.out.println("Atendente(1) | cliente(2)");
+			permissao = scanner.nextLine();
 
-		permissao = scanner.nextLine();
+			switch (permissao) {
 
-		switch (permissao) {
-
-		case "1":
-			permissaoAtendente();
-			break;
-		case "2":
-			permissaoCliente();
-			break;
-
-		default:
-			System.out.println("Opção inválida");
-		}
+			case "1":
+				permissaoAtendente();
+				break;
+			case "2":
+				permissaoCliente();
+				break;
+			default:
+				System.out.println("Opção inválida");
+			}
+		} while (!permissao.equals("sair"));
+		
 	}
 	
 	public static void permissaoAtendente() {
@@ -65,11 +83,14 @@ public class testPrincipal {
 			case "3":
 //				listarCliente();
 				break;
+			case "4":
+				gerandoAtendimento();
+				break;
 
-			default:
-				System.out.println("Opção inválida.");
+//			default:
+//				System.out.println("Opção inválida.");
 			}
-		} while (operacao != "sair");
+		} while (!operacao.equals("5"));
 	}
 
 	public static void permissaoCliente() {
@@ -88,18 +109,18 @@ public class testPrincipal {
 				listarCliente();
 				break;
 
-			default:
-				System.out.println("Opção inválida.");
+//			default:
+//				System.out.println("Opção inválida.");
 			}
-		} while (operacao != "sair");
+		} while (!operacao.equals("3"));
 	}
 
 	public static void gerandoCliente() {
 		/**
 		 * Recebendo dados do cliente para salvar
 		 */
-		Cliente cliente1 = new Cliente();
-		Cliente cliente2 = new Cliente();
+		cliente1 = new Cliente();
+		cliente2 = new Cliente();
 
 		Cliente dadosCliente1 = ClienteTest.gerarFormMularioClienteMockado1(cliente1);
 		Cliente dadosCliente2 = ClienteTest.gerarFormMularioClienteMockado2(cliente2);
@@ -111,17 +132,30 @@ public class testPrincipal {
 	
 	public static void gerandoAtendente() {
 		/**
+		 * Recebendo dados do Atendente para salvar
+		 */
+		atendente1= new Atendente();
+		atendente2 = new Atendente();
+
+		Atendente dadosAtendente1 = AtendenteTest.gerarFormMularioAtendenteMockado1(atendente1);
+		Atendente dadosAtendente2 = AtendenteTest.gerarFormMularioAtendenteMockado2(atendente2);
+
+		servicoAtendente.salvar(dadosAtendente1);
+		servicoAtendente.salvar(dadosAtendente2);
+
+	}
+	
+	public static void gerandoAtendimento() {
+		/**
 		 * Recebendo dados do cliente para salvar
 		 */
-		Atendente atendente1= new Atendente();
-		Atendente atendente2 = new Atendente();
-
-		Atendente dadosCliente1 = AtendenteTest.gerarFormMularioAtendenteMockado1(atendente1);
-		Atendente dadosCliente2 = AtendenteTest.gerarFormMularioAtendenteMockado2(atendente2);
-
-		servicoAtendente.salvar(dadosCliente1);
-		servicoAtendente.salvar(dadosCliente2);
-
+		atendimento= new Atendimento();
+		atendimento.setAtendente(atendente1);
+		atendimento.setClienteSolicitacao(cliente1);
+		
+		servicoAtendimento.salvar(atendimento);
+		
+		servicoAtendimento.listar();
 	}
 
 	public static void listarCliente() {

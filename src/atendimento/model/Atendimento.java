@@ -67,6 +67,15 @@ public class Atendimento {
 	public void setEquipamento(Equipamento equipamento) {
 		this.equipamento = equipamento;
 	}
+	
+	
+
+	@Override
+	public String toString() {
+		return "Atendimento [id=" + id + "| solicitacao=" + solicitacao + "| clienteSolicitacao=" + clienteSolicitacao
+				+ "| atendente=" + atendente + "| ordemDeServico=" + ordemDeServico + "| equipamento=" + equipamento
+				+ "]";
+	}
 
 	@Override
 	public int hashCode() {

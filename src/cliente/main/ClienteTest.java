@@ -57,7 +57,4 @@ public class ClienteTest {
 		
 		return cliente;
 	}
-
-
-
 }

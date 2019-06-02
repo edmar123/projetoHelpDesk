@@ -32,6 +32,7 @@ public class AtendimentoServiceImpl implements ServicoGenerico<Atendimento, Inte
 
 		System.out.println("Deseja Cadastrar este atendente ?");
 		System.out.println();
+		System.out.println("Dados do atendimento: " + atendimento.toString());
 
 		String acao = scanner.nextLine();
 
@@ -51,12 +52,12 @@ public class AtendimentoServiceImpl implements ServicoGenerico<Atendimento, Inte
 	}
 
 	@Override
-	public void remover(Atendimento atendente) {
+	public void remover(Atendimento atendimento) {
 
 		System.out.println("------ Remover Atendente  ------");
 		Scanner scanner = new Scanner(System.in);
 
-		System.out.println("Deseja Remover este cliente ?");
+		System.out.println("Deseja Remover este Atendimento ?");
 		System.out.println();
 
 		String acao = scanner.nextLine();
@@ -65,7 +66,7 @@ public class AtendimentoServiceImpl implements ServicoGenerico<Atendimento, Inte
 
 		if (acao.equals("sim")) {
 
-			atendimentos.remove(atendente);
+			atendimentos.remove(atendimento);
 
 			System.out.println("----- Atendente removido com Sucesso -----");
 			System.out.println();
