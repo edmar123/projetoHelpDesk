@@ -15,7 +15,7 @@ public class OrdemServicoServiceImpl implements ServicoGenerico<OrdemServico, In
 
 	@Override
 	public List<OrdemServico> listar() {
-		System.out.println("-----Atendimentos cadastrados-----");
+		System.out.println("-----Ordem de servico gerada-----");
 
 		System.out.println();
 
@@ -31,7 +31,7 @@ public class OrdemServicoServiceImpl implements ServicoGenerico<OrdemServico, In
 		System.out.println("------ Registrando uma Ordem de service ------");
 		Scanner scanner = new Scanner(System.in);
 
-		System.out.println("Deseja Cadastrar este Ordem de service ?");
+		System.out.println("Deseja registrar este Ordem de service ?");
 		System.out.println();
 
 		String acao = scanner.nextLine();
@@ -42,7 +42,7 @@ public class OrdemServicoServiceImpl implements ServicoGenerico<OrdemServico, In
 			OrdemServico ordemServicoSalvo = ordemServico;
 
 			this.ordensServicos.add(ordemServicoSalvo);
-			System.out.println("----- Ordem de service registrado com Sucesso -----");
+			System.out.println("----- Ordem de service registrada com Sucesso -----");
 			System.out.println();
 
 		} else if (acao.equals("cancelar")) {

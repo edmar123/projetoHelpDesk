@@ -14,6 +14,8 @@ import cliente.main.ClienteTest;
 import cliente.model.Cliente;
 import cliente.service.ClienteService;
 import cliente.service.ClienteServiceImpl;
+import ordemService.model.OrdemServico;
+import ordemService.service.OrdemServicoServiceImpl;
 import servicoGenerico.ServicoGenerico;
 
 public class testPrincipal {
@@ -27,15 +29,18 @@ public class testPrincipal {
 	static AtendenteService servicoAtendente = new AtendenteServiceImpl();
 	
 	static List<Atendimento>  atendimentosCadastrados = new ArrayList<>();
+	
+	static List<OrdemServico> ordensDeServicos = new ArrayList<>();
 
 	static ServicoGenerico<Atendimento, Integer> servicoAtendimento = new AtendimentoServiceImpl();
 	
-	static Atendente atendente1;
-	static Atendente atendente2;
-	
-	static Atendimento atendimento;
+	static ServicoGenerico<OrdemServico, Integer> servicoOrdemAtendimento = new OrdemServicoServiceImpl();
 
 	
+	static Atendente atendente1;
+	static Atendente atendente2;
+	static OrdemServico ordemServico;
+	static Atendimento atendimento;
 	static Cliente cliente1;
 	static Cliente cliente2;
 
@@ -114,11 +119,11 @@ public class testPrincipal {
 			}
 		} while (!operacao.equals("3"));
 	}
-
+	/*
+	 * Gera dados de clientes simulando uma inserção no banco de dados
+	 */
 	public static void gerandoCliente() {
-		/**
-		 * Recebendo dados do cliente para salvar
-		 */
+		
 		cliente1 = new Cliente();
 		cliente2 = new Cliente();
 
@@ -130,6 +135,9 @@ public class testPrincipal {
 
 	}
 	
+	/*
+	 * Gera dados de atendentess simulando uma inserção no banco de dados
+	 */
 	public static void gerandoAtendente() {
 		/**
 		 * Recebendo dados do Atendente para salvar
@@ -145,17 +153,39 @@ public class testPrincipal {
 
 	}
 	
+	/*
+	 * Gera dados de um Atendimento simulando uma inserção no banco de dados
+	 */
 	public static void gerandoAtendimento() {
-		/**
-		 * Recebendo dados do cliente para salvar
-		 */
-		atendimento= new Atendimento();
-		atendimento.setAtendente(atendente1);
-		atendimento.setClienteSolicitacao(cliente1);
 		
-		servicoAtendimento.salvar(atendimento);
+		if (clientesCadastrados.isEmpty() && atendentesCadastrados.isEmpty()) {
+			System.out.println();
+			System.out.println();
+			System.out.println("Não existe clientes ou atendentes! por favor cadastre-os no sistema");
+			System.out.println();
+			System.out.println();
+		}else {
+			atendimento= new Atendimento();
+			atendimento.setId(1);
+			atendimento.setSolicitacao("Instalação de sitema operacional");
+			atendimento.setAtendente(atendente1);
+			atendimento.setClienteSolicitacao(cliente1);
+			atendimento.setOrdemDeServico(ordemServico);
+			
+			servicoAtendimento.salvar(atendimento);
+			
+			servicoAtendimento.listar();
+		}
 		
-		servicoAtendimento.listar();
+	}
+	
+	
+	public static void gerandoOrdemServico() {
+		ordemServico = new OrdemServico();
+		ordemServico.setId(1);
+		ordemServico.setProtocolo("23233423423898889");
+		
+		servicoOrdemAtendimento.salvar(ordemServico);
 	}
 
 	public static void listarCliente() {

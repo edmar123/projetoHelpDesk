@@ -72,8 +72,8 @@ public class Atendimento {
 
 	@Override
 	public String toString() {
-		return "Atendimento [id=" + id + "| solicitacao=" + solicitacao + "| clienteSolicitacao=" + clienteSolicitacao
-				+ "| atendente=" + atendente + "| ordemDeServico=" + ordemDeServico + "| equipamento=" + equipamento
+		return "Atendimento [id |\n" + id + "| solicitacao |\n" + solicitacao + "| clienteSolicitacao |\n" + clienteSolicitacao
+				+ "| atendente |\n" + atendente + "| ordemDeServico |\n" + ordemDeServico + "| equipamento |\n" + equipamento
 				+ "]";
 	}
 

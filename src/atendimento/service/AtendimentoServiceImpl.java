@@ -9,7 +9,7 @@ import servicoGenerico.ServicoGenerico;
 
 public class AtendimentoServiceImpl implements ServicoGenerico<Atendimento, Integer> {
 
-	List<Atendimento> atendimentos = new ArrayList<>();
+	private List<Atendimento> atendimentos = new ArrayList<>();
 
 	@Override
 	public List<Atendimento> listar() {
@@ -18,7 +18,7 @@ public class AtendimentoServiceImpl implements ServicoGenerico<Atendimento, Inte
 		System.out.println();
 
 		for (int i = 0; i < atendimentos.size(); i++) {
-			System.out.println(atendimentos.get(i).getSolicitacao());
+			System.out.println(atendimentos.get(i).toString());
 		}
 		
 		return this.atendimentos;
@@ -30,7 +30,7 @@ public class AtendimentoServiceImpl implements ServicoGenerico<Atendimento, Inte
 		System.out.println("------ Registrando um atendimento  ------");
 		Scanner scanner = new Scanner(System.in);
 
-		System.out.println("Deseja Cadastrar este atendente ?");
+		System.out.println("Deseja Cadastrar este atendimento ?");
 		System.out.println();
 		System.out.println("Dados do atendimento: " + atendimento.toString());
 
@@ -54,7 +54,7 @@ public class AtendimentoServiceImpl implements ServicoGenerico<Atendimento, Inte
 	@Override
 	public void remover(Atendimento atendimento) {
 
-		System.out.println("------ Remover Atendente  ------");
+		System.out.println("------ Remover Atendimento ------");
 		Scanner scanner = new Scanner(System.in);
 
 		System.out.println("Deseja Remover este Atendimento ?");
@@ -68,15 +68,15 @@ public class AtendimentoServiceImpl implements ServicoGenerico<Atendimento, Inte
 
 			atendimentos.remove(atendimento);
 
-			System.out.println("----- Atendente removido com Sucesso -----");
+			System.out.println("----- Atendimento removido com Sucesso -----");
 			System.out.println();
 
 		} else if (acao.equals("cancelar")) {
-			System.out.println("----- Cancelando a remocão de Atendente -----");
+			System.out.println("----- Cancelando a remocão de Atendimento -----");
 			System.out.println();
 		}
 
-		System.out.println("Removendo Atendente da base de dados");
+		System.out.println("Removendo Atendimento da base de dados");
 	}
 
 	@Override
